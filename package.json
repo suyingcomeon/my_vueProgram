@@ -18,7 +18,13 @@
     "url": "https://github.com/suyingcomeon/my_vueProgram/issues"
   },
   "homepage": "https://github.com/suyingcomeon/my_vueProgram#readme",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.16.2",
+    "transform-runtime": "^0.0.0",
+    "vue": "^2.4.3",
+    "vue-router": "^2.7.0",
+    "vuex": "^2.4.0"
+  },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
@@ -30,8 +36,14 @@
     "eslint": "^4.11.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "glob": "^7.1.2",
+    "precss": "^2.0.0",
+    "style-loader": "^0.19.0",
     "url-loader": "^0.6.2",
     "vue-loader": "^13.5.0",
+    "vue-template-compiler": "^2.5.8",
     "webpack": "^3.8.1"
   }
 }
