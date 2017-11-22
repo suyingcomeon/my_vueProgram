@@ -18,7 +18,17 @@
     "url": "https://github.com/suyingcomeon/my_vueProgram/issues"
   },
   "homepage": "https://github.com/suyingcomeon/my_vueProgram#readme",
- "dependencies": {
-     
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.1.1",
+    "css-loader": "^0.28.7",
+    "url-loader": "^0.6.2",
+    "vue-loader": "^13.5.0",
+    "webpack": "^3.8.1"
   }
 }
