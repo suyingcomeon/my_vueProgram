@@ -50,5 +50,20 @@ const config = {
             }
         ]
     },
-    resole
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],//自动解析后缀
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',//webpack 的vue必须要加上这个
+        }
+    },
+    plugin: []
+}
+
+function getEntry (globPath, pathDir) {
+    var files = glob.sync(globPath);
+    var entries = {},
+    entry,dirname,basename,extname,chunks;
+    files.forEach((entry) => {
+        dirname = path.dirname(entry)
+    })
 }
