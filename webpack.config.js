@@ -64,6 +64,26 @@ function getEntry (globPath, pathDir) {
     var entries = {},
     entry,dirname,basename,extname,chunks;
     files.forEach((entry) => {
-        dirname = path.dirname(entry)
+        dirname = path.dirname(entry);
+        basename = /apps\(.*)\/index\.js/.exec(entry)[1];
+        entries[basename] = entry;
+        const plug = new HtmlWebpackPlugin({
+            filename: `$(__dirname)/dist/${basename}.html`,
+            chunks,
+            template: `$(dirname)/index.html`,
+            inject: true
+        })
+        config.plugins.push(plug);
     })
+    return entries;
+}
+
+const newEntries = getEntry('./src/apps/*/index.js');
+
+if(evn === 'production') {//生产环境
+    config.entry = {
+        vender: ['vue', 'vue-router', 'vuex']//公用方法
+    },
+    config.plugins = config.plugins.concat([])
+
 }
