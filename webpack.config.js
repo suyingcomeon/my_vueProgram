@@ -84,6 +84,27 @@ if(evn === 'production') {//生产环境
     config.entry = {
         vender: ['vue', 'vue-router', 'vuex']//公用方法
     },
-    config.plugins = config.plugins.concat([])
-
+    config.plugins = config.plugins.concat([
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor']
+        })
+    ])
+    new ExtractTextPlugin({
+        filename:(getPath) => {
+            return getPath('[name].[hash].css')
+        }
+    })//分离css
+} else {
+    config.devtool = 'source-map';
+    config.devServer = {
+        historyApiFallback: true,//不跳转
+        inline: true,//时时刷新
+        hot: true,//热加载
+        port: 8080
+    }
+    config.plugins = config.concat([
+        new webpack.HotModuleReplacementPlugin(),
+    ])
 }
+config.entry = Object.assign({}, config.entry, newEntries);
+module.exports = config;
