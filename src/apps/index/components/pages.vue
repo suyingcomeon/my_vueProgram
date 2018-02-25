@@ -1,5 +1,5 @@
 <template>
     <div>
-        <div v-for="n in 10" :key="n">div</div>
+        <div>页面</div>
     </div>
 </template>

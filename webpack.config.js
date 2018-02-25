@@ -65,17 +65,20 @@ function getEntry (globPath, pathDir) {
     dirname,basename,extname,chunks;
     files.forEach((entry) => {
         console.log(entry)
+        console.log(3445)
         dirname = path.dirname(entry);
         basename = /apps\/(.*)\/index\.js/.exec(entry)[1];
         entries[basename] = entry;
         const plug = new HtmlWebpackPlugin({
-            filename: `$(__dirname)/dist/${basename}.html`,
+            filename: `${__dirname}/dist/${basename}.html`,
             chunks,
-            template: `$(dirname)/index.html`,
+            template: `${dirname}/index.html`,
             inject: true
         })
         config.plugins.push(plug);
     })
+    console.log(78)
+    console.log(entries)
     return entries;
 }
 
@@ -101,7 +104,7 @@ if(env === 'production') {//生产环境
         historyApiFallback: true,//不跳转
         inline: true,//时时刷新
         hot: true,//热加载
-        port: 8080
+        port: 9010
     }
     config.plugins = config.plugins.concat([
         new webpack.HotModuleReplacementPlugin(),
