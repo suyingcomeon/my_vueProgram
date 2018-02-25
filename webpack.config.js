@@ -56,16 +56,17 @@ const config = {
             'vue$': 'vue/dist/vue.esm.js',//webpack 的vue必须要加上这个
         }
     },
-    plugin: []
+    plugins: []
 }
 
 function getEntry (globPath, pathDir) {
     var files = glob.sync(globPath);
     var entries = {},
-    entry,dirname,basename,extname,chunks;
+    dirname,basename,extname,chunks;
     files.forEach((entry) => {
+        console.log(entry)
         dirname = path.dirname(entry);
-        basename = /apps\(.*)\/index\.js/.exec(entry)[1];
+        basename = /apps\/(.*)\/index\.js/.exec(entry)[1];
         entries[basename] = entry;
         const plug = new HtmlWebpackPlugin({
             filename: `$(__dirname)/dist/${basename}.html`,
@@ -80,7 +81,7 @@ function getEntry (globPath, pathDir) {
 
 const newEntries = getEntry('./src/apps/*/index.js');
 
-if(evn === 'production') {//生产环境
+if(env === 'production') {//生产环境
     config.entry = {
         vender: ['vue', 'vue-router', 'vuex']//公用方法
     },
@@ -102,7 +103,7 @@ if(evn === 'production') {//生产环境
         hot: true,//热加载
         port: 8080
     }
-    config.plugins = config.concat([
+    config.plugins = config.plugins.concat([
         new webpack.HotModuleReplacementPlugin(),
     ])
 }
