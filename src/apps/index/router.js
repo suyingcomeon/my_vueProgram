@@ -5,11 +5,11 @@ import Page1 from './components/pages';
 Vue.use(Router);
 
 export default new Router({
-    routers: [
+    routes: [
         {
             path: '/',
             name: 'page1',
-            components: Page1
+            component: Page1
         }
     ]
 })
